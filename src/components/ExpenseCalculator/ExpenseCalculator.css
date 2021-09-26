@@ -14,8 +14,9 @@
     margin: 0 20px;
 }
 
-.expense-calculator-container h4 {
+.expense-calculator-container h2 {
     font-weight: 300;
+    font-size: .9em;
 }
 
 .expense-calculator-container article {
