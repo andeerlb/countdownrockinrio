@@ -1,4 +1,4 @@
-{
+export const TRANSLATIONS_PT = {
   "DAYS": "dias",
   "HOURS": "horas",
   "MINUTES": "minutos",
@@ -6,4 +6,3 @@
   "ROCK_IN_RIO_COUNTDOWN": "Faltam",
   "ROCK_IN_RIO_COUNTDOWN_SUBTITLE": "PARA O MAIOR ROCK IN RIO DE TODOS OS TEMPOS"
 }
-  

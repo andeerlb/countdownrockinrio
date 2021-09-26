@@ -6,9 +6,9 @@ import './CountDown.css';
 
 const SVGCircle = ({ radius, stroke, colorCount, colorTotal }) => (
     <>
-        <svg className='countdown-svg' style={{ opacity: ".2" }}>
+        {/* <svg className='countdown-svg' style={{ opacity: ".2" }}>
             <path fill="none" stroke={colorTotal} strokeWidth={stroke} d={describeArc(50, 50, 48, 0, 359)}/>
-        </svg>
+        </svg> */}
         <svg className='countdown-svg'>
             <path fill="none" stroke={colorCount} strokeWidth={stroke} d={describeArc(50, 50, 48, 0, radius)}/>
         </svg>
@@ -57,7 +57,7 @@ function CountDown({ timeTillDate="2022-09-02 00:00:00", timeFormat="YYYY-MM-DD 
 
     const stroke = 4;
     const colorBorderFinally = "#ddd";
-    const colorBorderCount = "#212529";
+    const colorBorderCount = "#000";
 
     let interval = setInterval(() => {
 			const end = moment(timeTillDate, timeFormat).local();
@@ -91,23 +91,23 @@ function CountDown({ timeTillDate="2022-09-02 00:00:00", timeFormat="YYYY-MM-DD 
             <div className='countdown-wrapper'>
                 <h1 className="countdown-title">{t('ROCK_IN_RIO_COUNTDOWN')}</h1>
                 <div className="countdown-item-wrapper">
-                    <div className='countdown-item'>
-                        <SVGCircle stroke={stroke} radius={daysRadius} colorCount={colorBorderCount} colorTotal={colorBorderFinally}/>
+                    <div className='countdown-item bg-days'>
+                        <SVGCircle stroke={stroke} radius={daysRadius} colorCount={colorBorderCount}/>
                         {days} 
                         <span>{t('DAYS')}</span>
                     </div>
-                    <div className='countdown-item'>							
-                        <SVGCircle stroke={stroke} radius={hoursRadius} colorCount={colorBorderCount} colorTotal={colorBorderFinally}/>
+                    <div className='countdown-item bg-hours'>							
+                        <SVGCircle stroke={stroke} radius={hoursRadius} colorCount={colorBorderCount}/>
                         {hours} 
                         <span>{t('HOURS')}</span>
                     </div>
-                    <div className='countdown-item'>
-                        <SVGCircle stroke={stroke} radius={minutesRadius} colorCount={colorBorderCount} colorTotal={colorBorderFinally}/>
+                    <div className='countdown-item bg-minutes'>
+                        <SVGCircle stroke={stroke} radius={minutesRadius} colorCount={colorBorderCount}/>
                         {minutes} 
                         <span>{t('MINUTES')}</span>
                     </div>
-                    <div className='countdown-item'>
-                        <SVGCircle stroke={stroke} radius={secondsRadius} colorCount={colorBorderCount} colorTotal={colorBorderFinally}/>
+                    <div className='countdown-item bg-seconds' >
+                        <SVGCircle stroke={stroke} radius={secondsRadius} colorCount={colorBorderCount}/>
                         {seconds} 
                         <span>{t('SECONDS')}</span>
                     </div>

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 .countdown-title {
 	margin-bottom: 30px;
@@ -14,14 +15,18 @@
 }
 
 .countdown-wrapper {
+	position: absolute;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	flex-wrap: nowrap;
 	text-align: center;
-	padding: 0 100px;
-	height: 100vh;
+	padding: 40px 20px;
+	width: calc(100% - 40px);
+	background: linear-gradient(-45deg, #dee2e6, #ced4da, #118ab2, #6c757d, #f94144);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
 }
 
 .countdown-item-wrapper {
@@ -30,10 +35,19 @@
 	align-items: center;
 	justify-content: center;
 	flex-wrap: wrap;
+	background: rgba(0,0,0, .1);
+    border-radius: 15px;
+    padding: 20px;
+	transition: .5s;
+}
+
+.countdown-item-wrapper:hover {
+	background: rgba(0,0,0, .2);
 }
 
 .countdown-item {
-	color: #111;
+	color: white;
+	font-family: 'Bebas Neue', cursive;
 	font-size: 40px;
 	display: flex;
 	align-items: center;
@@ -47,13 +61,12 @@
 	height: 100px;
 	border-radius: 100%;
 	box-sizing: border-box;
+	text-transform: uppercase;
 }
 
 .countdown-item span {
-	color: #333;
-	font-size: 12px;
-	font-weight: 600;
-	text-transform: uppercase;
+	font-size: 10px;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .countdown-svg {
@@ -87,4 +100,20 @@ footer i {
 footer a {
     color: #3c97bf;
     text-decoration: none;
+}
+
+.bg-days {
+	background: rgba(181, 201, 154, .2);
+}
+
+.bg-hours {
+	background: rgba(151, 169, 124, .2);
+}
+
+.bg-minutes {
+	background: rgba(135, 152, 106, .2);
+}
+
+.bg-seconds {
+	background: rgba(113, 131, 85, .2);
 }
