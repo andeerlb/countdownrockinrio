@@ -1,9 +1,21 @@
+@font-face {
+  font-family: 'Patua One';
+  src: url(./fonts/PatuaOne-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url(./fonts/BebasNeue-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url(./fonts/Roboto.ttf) format('truetype');
+}
+
 * {
   margin: 0;
   padding: 0;
-}
-
-body {
 }
 
 @keyframes gradient {
@@ -16,4 +28,37 @@ body {
   100% {
     background-position: 0% 50%;
   }
+}
+
+body {
+  color: #363636;
+}
+
+hr {
+  line-height: 1em;
+  position: relative;
+  outline: 0;
+  border: 0;
+  color: black;
+  text-align: center;
+  height: 1.5em;
+  opacity: 0.5;
+}
+hr:before {
+  content: "";
+  background: linear-gradient(to right, transparent, #818078, transparent);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+}
+hr:after {
+  content: attr(data-content);
+  position: relative;
+  display: inline-block;
+  color: black;
+  padding: 0 0.5em;
+  line-height: 1.5em;
+  background-color: #dee2e6;
 }

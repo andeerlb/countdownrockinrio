@@ -1,0 +1,26 @@
+.footer-distributed {
+  background-color: #292c2f;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  font: normal 16px sans-serif;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  justify-content: center;
+  color: #8f9296;
+  font-size: 14px;
+  margin: 0;
+  text-align: center;
+}
+
+.footer-distributed .coffe {
+    margin: 0 10px;
+}
+
+.footer-distributed .heart {
+    margin: 0 10px;
+}
