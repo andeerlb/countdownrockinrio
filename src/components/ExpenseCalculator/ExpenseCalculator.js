@@ -1,5 +1,6 @@
 import React from 'react';
 import { useCountDown } from '../../context/CountDownContext';
+import Calculator from '../Calculator/Calculator';
 
 import './ExpenseCalculator.css';
 
@@ -15,6 +16,7 @@ function ExpenseCalculator() {
                 <hr />
                 <article>Para isso, deixei uma calculadora, com ela você pode separar os gastos desejados e obter um valor final.</article>
                 <hr data-content="Vamos testar?"/>
+                <Calculator />
             </div>
         </div>
     )
