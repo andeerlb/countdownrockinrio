@@ -11,6 +11,7 @@
     display: flex;
     flex-flow: column-reverse;
     margin-bottom: 15px;
+    position: relative;
 }
 
 label, input {
@@ -29,7 +30,18 @@ input {
 
 input:focus {
     outline: 0;
-    border-color: #118ab2;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 input:-moz-placeholder-shown+label {
@@ -62,13 +74,11 @@ input:placeholder-shown+label {
 input:not(:-moz-placeholder-shown)+label {
     transform: translate(0, 0) scale(1);
     cursor: default;
-    color: coral;
 }
 
 input:not(:placeholder-shown)+label, input:focus+label {
     transform: translate(0, 0) scale(1);
     cursor: default;
-    color: #118ab2;
 }
 
 label {
@@ -145,4 +155,10 @@ label {
 
 .containerTitle .title {
     margin-right: 20px;
+}
+
+.currencyIcon {
+    position: absolute;
+    left: 0;
+    margin-bottom: 9px;
 }

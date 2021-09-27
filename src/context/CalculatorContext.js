@@ -4,13 +4,14 @@ const CalculatorContext = createContext();
 
 export function CalculatorProvider ({ children }) {
     const defaultState = [
-        {id: 'Hospedagem', label: 'Hospedagem', value: null},
-        {id: 'Passagens', label: 'Passagens', value: null},
-        {id: 'alimentacao', label: 'Alimentação', value: null},
-        {id: 'Transporte', label: 'Transporte', value: null}
+        {id: 'Hospedagem', label: 'Hospedagem', value: "0.00"},
+        {id: 'Passagens', label: 'Passagens', value: "0.00"},
+        {id: 'alimentacao', label: 'Alimentação', value: "0.00"},
+        {id: 'Transporte', label: 'Transporte', value: "0.00"}
     ];
 
     const [items, setItems] = useState(defaultState);
+    const [expectedTotalValue, setExpectedTotalValue] = useState("0.00");
 
     const resetState = () => {
         setItems(defaultState);
@@ -19,7 +20,7 @@ export function CalculatorProvider ({ children }) {
     return (
         <CalculatorContext.Provider value={ 
             {
-                items, setItems, resetState
+                items, setItems, resetState, expectedTotalValue, setExpectedTotalValue
             }
         }>
             { children }
