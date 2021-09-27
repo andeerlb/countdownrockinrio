@@ -125,16 +125,6 @@ label {
     opacity: 0.85;
 }
 
-.button:active {
-    transition: all 150ms linear;
-    opacity: 0.75;
-}
-
-.button:focus {
-    outline: 1px dotted #959595;
-    outline-offset: -4px;
-}
-
 .regular {
     color: #fff;
     background: linear-gradient(-45deg, #ced4da, #118ab2, #6c757d, #f94144);
