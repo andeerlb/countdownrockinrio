@@ -28,3 +28,7 @@ export function calculateSVGPercentRadius(qtd, total) {
     let radius = (360 * totalPercent) / 100;
     return radius;
 }
+
+export function replaceStringVar(string, variable, value) {
+  return string.replace(variable, value);
+}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CurrencyInput from 'react-currency-masked-input';
+import { useTranslation } from 'react-i18next';
 import { useCalculator } from '../../context/CalculatorContext';
 import { useModal } from '../../context/ModalContext';
 import Modal from '../Modal/Modal';
@@ -7,6 +8,7 @@ import Modal from '../Modal/Modal';
 import style from "./Calculator.module.css";
 
 const AddMoreModal = () => {
+    const { t } = useTranslation();
     const { toggleModal } = useModal();
     const { items, setItems } = useCalculator();
     const [name, setName] = useState('');
@@ -29,7 +31,7 @@ const AddMoreModal = () => {
         <Modal>
             <Input id="vtotal" label="Nome" isCurrency={false} onChange={inputValue} defaultValue=""/>
             <div className={[style.button, style.regular].join(' ')} onClick={addMore}>
-                Adicionar
+                {t('ADD_ITEM')}
             </div>
         </Modal>
     )
@@ -71,23 +73,9 @@ const Item = ({ item, index }) => {
     )
 }
 
-const ExpectedTotalValue = () => {
-    const { expectedTotalValue, setExpectedTotalValue} = useCalculator();
-
-    const onChange = val => {
-        setExpectedTotalValue(val);
-    }
-
-    return (
-        <div className={style.containerTitle}>
-            <div className={style.title}>Qual valor você deseja arrecadar até a data do evento?</div>
-            <Input id="vtotal" label="Valor final" hideLabel={true} width="100px" defaultValue={expectedTotalValue} onChange={onChange}/>
-        </div>
-    )
-}
-
 export default function Calculator() {
-    const { items, expectedTotalValue } = useCalculator();
+    const { t } = useTranslation();
+    const { items } = useCalculator();
     const { toggleModal } = useModal();
 
     const calculate = () => {
@@ -96,7 +84,6 @@ export default function Calculator() {
     return (
         <>  
             <AddMoreModal />
-            <ExpectedTotalValue />
             <div className={style.calculator}>
                 {items.map((item, index) => {
                     return (
@@ -104,10 +91,10 @@ export default function Calculator() {
                     )
                 })}
                 <div className={[style.button, style.regular].join(' ')} onClick={toggleModal}>
-                    Adicionar mais items
+                    {t('ADD_MORE_ITEMS')}
                 </div>
                 <div style={{marginTop: "5px"}} className={[style.button, style.regular].join(' ')} onClick={calculate}>
-                    Calcular
+                    {t('CALCULATE')}
                 </div>
             </div>
         </>
