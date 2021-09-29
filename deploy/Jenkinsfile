@@ -12,5 +12,13 @@ pipeline {
                 """
             }
         }
+
+        stage("Build") {
+            sh "yarn build"
+        }
+
+        stage("Deploy") {
+            "sh ls"
+        }
     }
 }
