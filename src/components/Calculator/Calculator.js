@@ -69,7 +69,6 @@ const Item = ({ item, index }) => {
     const { updateItemValue } = useCalculator();
 
     const onChange = val => {
-        console.log('aqui');
         updateItemValue(item, val);
     }
 
@@ -84,7 +83,7 @@ export default function Calculator() {
     const { toggleModal } = useModal();
 
     const calculate = () => {
-        console.log('nocontext: ', totalValue);
+        console.log(totalValue);
     }
 
     return (
