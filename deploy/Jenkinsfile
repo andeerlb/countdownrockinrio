@@ -36,7 +36,7 @@ pipeline {
                         --distribution-id $CLOUDFRONT_ID \
                         --paths "/*"
 
-                    CLOUDFRONT_INVALIDATION_ID=eval "aws cloudfront create-invalidation --distribution-id E165NDOJ0Q86CD --paths \"/*\" | jq \".Invalidation.Id\""
+                    CLOUDFRONT_INVALIDATION_ID=\$(aws cloudfront create-invalidation --distribution-id E165NDOJ0Q86CD --paths "/*" | jq ".Invalidation.Id")
 
                     attempt_counter=0
                     max_attempts=5
@@ -44,7 +44,7 @@ pipeline {
                     waitForCompleted () {
                         while IFS=read -r line
                         do
-                            CLOUDFRONT_INVALIDATION_STATUS=$(aws cloudfront get-invalidation --id I29G7388Z3WN7F --distribution-id E165NDOJ0Q86CD | jq ".Invalidation.Status")
+                            CLOUDFRONT_INVALIDATION_STATUS=\$(aws cloudfront get-invalidation --id I29G7388Z3WN7F --distribution-id E165NDOJ0Q86CD | jq ".Invalidation.Status")
 
                             if [[ CLOUDFRONT_INVALIDATION_STATUS -eq "Completed" ]]; then
                                 break
