@@ -40,12 +40,12 @@ export function CalculatorProvider ({ children }) {
     }
 
     const calculateTotalValue = (itemList) => {
-        if(items.length === 0)  {
+        if(itemList.length === 0)  {
             setTotalValue(0.00);
             return;
         }
 
-        let values = items.map(item => parseFloat(item.value));
+        let values = itemList.map(item => parseFloat(item.value));
         let total = values.reduce((partialSum, value) => partialSum + value,0);
         setTotalValue(total);
     }
