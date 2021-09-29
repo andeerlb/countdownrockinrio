@@ -40,6 +40,9 @@ pipeline {
                     CLOUDFRONT_INVALIDATION_ID=$(aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID --paths \"/*\" | jq \".Invalidation.Id\")
                     echo $CLOUDFRONT_INVALIDATION_ID
 
+                    CLOUDFRONT_INVALIDATION_STATUS=$(aws cloudfront get-invalidation --id $CLOUDFRONT_INVALIDATION_ID --distribution-id $CLOUDFRONT_ID | jq \".Invalidation.Status\")
+                    echo $CLOUDFRONT_INVALIDATION_STATUS
+
                     ## while :
                     ## do
                     ##     CLOUDFRONT_INVALIDATION_STATUS=$(aws cloudfront get-invalidation --id $CLOUDFRONT_INVALIDATION_ID --distribution-id $CLOUDFRONT_ID | jq \".Invalidation.Status\")
