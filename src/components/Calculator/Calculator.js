@@ -85,9 +85,9 @@ const Result = () => {
     const { months } = useCountDown();
     const { totalValue, prefix, separator } = useCalculator();
     const totalByMonth = (totalValue/months).toFixed(2);
-
+    
     return (
-        totalValue &&
+        totalValue !== '0.00' && totalValue !== 0.00 &&
         <div className={style.resultContainer}>
             <div className={style.resultTotalValue}>{prefix} {totalValue.replace(".", separator)}</div>
             <hr />
