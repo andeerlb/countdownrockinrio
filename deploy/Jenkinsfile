@@ -40,7 +40,7 @@ pipeline {
                         --distribution-id $CLOUDFRONT_ID \
                         --paths "/*"
 
-                    CLOUDFRONT_INVALIDATION_ID=\$(eval "aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID --paths \"/*\" | jq \".Invalidation.Id\"")
+                    CLOUDFRONT_INVALIDATION_ID="aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID --paths \"/*\" | jq \".Invalidation.Id\""
 
                     echo $CLOUDFRONT_INVALIDATION_ID
 
