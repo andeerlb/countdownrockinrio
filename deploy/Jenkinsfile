@@ -36,7 +36,6 @@ pipeline {
                     #!/bin/bash
 
                     aws s3 sync build/ s3://countdownrockinrio-web
-                    aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID --paths "/*"
 
                     CLOUDFRONT_INVALIDATION_ID=\$(aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID --paths "/*" | jq ".Invalidation.Id")
 
