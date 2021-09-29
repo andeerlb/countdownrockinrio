@@ -45,11 +45,11 @@ pipeline {
                         CLOUDFRONT_INVALIDATION_STATUS=\$(aws cloudfront get-invalidation --id $CLOUDFRONT_INVALIDATION_ID --distribution-id $CLOUDFRONT_ID | jq ".Invalidation.Status")
 
                         if [[ $CLOUDFRONT_INVALIDATION_STATUS -eq "Completed" ]]; then
-                            echo "CloudFront invalidiation status: $CLOUDFRONT_INVALIDATION_STATUS"
+                            echo "CloudFront invalidation status: $CLOUDFRONT_INVALIDATION_STATUS"
                             break
                         fi
 
-                        echo "CloudFront invalidiation status: $CLOUDFRONT_INVALIDATION_STATUS"
+                        echo "CloudFront invalidation status: $CLOUDFRONT_INVALIDATION_STATUS"
                         echo "Retry"
                         sleep 5
                     done
