@@ -36,7 +36,7 @@ pipeline {
                         --distribution-id $CLOUDFRONT_ID \
                         --paths "/*"
 
-                    CLOUDFRONT_INVALIDATION_ID=\$(aws cloudfront create-invalidation --distribution-id E165NDOJ0Q86CD --paths /* | jq ".Invalidation.Id")
+                    CLOUDFRONT_INVALIDATION_ID=\$(aws cloudfront create-invalidation --distribution-id E165NDOJ0Q86CD --paths /\\* | jq ".Invalidation.Id")
 
                     attempt_counter=0
                     max_attempts=5
