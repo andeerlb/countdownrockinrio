@@ -36,10 +36,10 @@ export function CalculatorProvider ({ children }) {
             }
           });
           setItems(newList);
-          calculateTotalValue();
+          calculateTotalValue(newList);
     }
 
-    const calculateTotalValue = () => {
+    const calculateTotalValue = (itemList) => {
         if(items.length === 0)  {
             setTotalValue(0.00);
             return;
