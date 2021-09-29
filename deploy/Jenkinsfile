@@ -15,8 +15,10 @@ pipeline {
 
         stage("Build") {
             steps {
-                sh "ls"
-                sh "yarn build"
+                sh """
+                    yarn install
+                    yarn build
+                """
             }
         }
 
