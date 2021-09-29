@@ -80,12 +80,11 @@ const Item = ({ item, index }) => {
 
 export default function Calculator() {
     const { t } = useTranslation();
-    const { items, resetState, calculateTotalValue, totalValue } = useCalculator();
+    const { items, resetState, totalValue } = useCalculator();
     const { toggleModal } = useModal();
 
     const calculate = () => {
-        calculateTotalValue();
-        console.log(totalValue);
+        console.log('nocontext: ', totalValue);
     }
 
     return (

@@ -35,18 +35,17 @@ export function CalculatorProvider ({ children }) {
             }
           });
           setItems(newList);
+          calculateTotalValue(currentItem);
     }
 
-    const calculateTotalValue = () => {
-        let values = items.map(item => parseFloat(item.value));
-        let total = values.reduce((partialSum, value) => partialSum + value,0);
-        setTotalValue(total);
+    const calculateTotalValue = (currentItem) => {
+        setTotalValue(totalValue+currentItem.value);
     }
     
     return (
         <CalculatorContext.Provider value={ 
             {
-                items, setItems, resetState, addItem, totalValue, calculateTotalValue, updateItemValue
+                items, setItems, resetState, addItem, totalValue, updateItemValue
             }
         }>
             { children }
