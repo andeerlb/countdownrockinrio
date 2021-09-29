@@ -18,7 +18,7 @@ const SVGCircle = ({ radius, stroke, colorCount, colorTotal }) => (
 );
 
 function CountDown({ timeTillDate="2022-09-02 00:00:00", timeFormat="YYYY-MM-DD HH:mm:ss", t }) {
-    const { days, hours, minutes, seconds, setDays, setHours, setMinutes, setSeconds } = useCountDown();
+    const { days, hours, minutes, seconds, setDays, setHours, setMinutes, setSeconds, setMonths } = useCountDown();
 
     const stroke = 4;
     const colorBorderCount = "#000";

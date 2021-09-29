@@ -10,9 +10,10 @@ export function CountDownProvider ({ children }) {
     const [ months, setMonths] = useState(0);
     const [ weeks, setWeeks] = useState(0);
 
-    const setDays = day => {
-        updateDays(day);
-        setWeeks(parseInt(day/7))
+    const setDays = days => {
+        updateDays(days);
+        setWeeks(parseInt(days/7));
+        setMonths(parseInt(days/31));
     }
 
     return (

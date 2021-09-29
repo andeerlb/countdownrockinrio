@@ -12,5 +12,6 @@ export const TRANSLATIONS_PT = {
   "DESCRIBE_CALCULATE_PAGE": "Calma, o Rock in Rio é apenas em 2022, ainda faltam {weeks} semanas, vamos pensar em algo juntos",
   "ARTICLE_USE_CALCULATE": "Para isso, deixei uma calculadora, com ela você pode separar os gastos desejados e obter um valor final.",
   "LETS_GO_TEST_CALCULATOR": "Vamos testar?",
-  "RESET_CALCULATOR": "Resetar"
+  "RESET_CALCULATOR": "Resetar",
+  "PRINT": "Imprimir"
 }

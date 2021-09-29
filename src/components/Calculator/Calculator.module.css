@@ -162,3 +162,33 @@ label {
     color: #fff;
     background: #118ab2;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@800&display=swap');
+
+.resultContainer {
+
+}
+
+.resultTotalValue {
+    font-family: 'Exo', sans-serif;
+    height: 70px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:-14px;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #529e0e;
+}   
+
+.resultDescription {
+    margin-bottom: 20px;
+}
+
+.resultDescription div {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
