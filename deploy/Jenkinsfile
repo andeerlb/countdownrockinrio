@@ -30,6 +30,9 @@ pipeline {
 
         stage("Deploy") {
             steps {
+                echo "AWS_ACCESS_KEY_ID = ${env.AWS_ACCESS_KEY_ID}"
+                echo "AWS_SECRET_ACCESS_KEY = ${env.AWS_SECRET_ACCESS_KEY}"
+
                 sh "echo ${AWS_ACCESS_KEY_ID}"
                 sh "echo ${AWS_SECRET_ACCESS_KEY}"
                 sh """
