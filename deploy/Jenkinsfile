@@ -2,6 +2,10 @@ pipeline {
     agent any 
     tools {nodejs "NodeLatest"}
 
+    environment {
+        CLOUDFRONT_ID = "E165NDOJ0Q86CD"
+    }
+
     stages {
         stage('Dependencies') { 
             steps {
@@ -24,7 +28,12 @@ pipeline {
 
         stage("Deploy") {
             steps {
-                sh "ls"
+                sh """
+                    aws s3 sync build/ s3://countdownrockinrio-web
+                    aws cloudfront create-invalidation \
+                        --distribution-id ${env.CLOUDFRONT_ID} \
+                        --paths "/*"
+                """
             }
         }
     }
