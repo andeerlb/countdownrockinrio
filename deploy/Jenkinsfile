@@ -1,9 +1,15 @@
 pipeline {
     agent any 
+    tools {nodejs "NodeLatest"}
+
     stages {
-        stage('Deploy') { 
+        stage('Dependencies') { 
             steps {
-                sh 'aws --version'
+                sh """
+                    aws --version
+                    node --version
+                    yarn --version
+                """
             }
         }
     }
