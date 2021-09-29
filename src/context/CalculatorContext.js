@@ -15,6 +15,7 @@ export function CalculatorProvider ({ children }) {
 
     const resetState = () => {
         setItems([]);
+        calculateTotalValue();
     }
 
     const addItem = (name, value="0.00", id=new Date().getTime() + Math.random()) => {        
