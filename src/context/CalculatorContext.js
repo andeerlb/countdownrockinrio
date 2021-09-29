@@ -24,7 +24,7 @@ export function CalculatorProvider ({ children }) {
         setItems(tmp);
     }
 
-    const updateItemValue = (currentItem, newValue) => {
+    const updateItemValue = (currentItem, newValue) => {        
         const newList = items.map((item, index) => {
             if (currentItem !== item) {
                 return item;
@@ -40,6 +40,11 @@ export function CalculatorProvider ({ children }) {
     }
 
     const calculateTotalValue = () => {
+        if(items.length === 0)  {
+            setTotalValue(0.00);
+            return;
+        }
+
         let values = items.map(item => parseFloat(item.value));
         let total = values.reduce((partialSum, value) => partialSum + value,0);
         setTotalValue(total);
