@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const CalculatorContext = createContext();
 
@@ -13,9 +13,12 @@ export function CalculatorProvider ({ children }) {
     const [items, setItems] = useState(defaultState);
     const [totalValue, setTotalValue] = useState(0.00);
 
+    useEffect(() => {
+        calculateTotalValue();
+    }, [items])
+
     const resetState = () => {
         setItems([]);
-        calculateTotalValue();
     }
 
     const addItem = (name, value="0.00", id=new Date().getTime() + Math.random()) => {        
@@ -36,16 +39,15 @@ export function CalculatorProvider ({ children }) {
             }
           });
           setItems(newList);
-          calculateTotalValue(newList);
     }
 
-    const calculateTotalValue = (itemList) => {
-        if(itemList.length === 0)  {
+    const calculateTotalValue = () => {
+        if(items.length === 0)  {
             setTotalValue(0.00);
             return;
         }
 
-        let values = itemList.map(item => parseFloat(item.value));
+        let values = items.map(item => parseFloat(item.value));
         let total = values.reduce((partialSum, value) => partialSum + value,0);
         setTotalValue(total);
     }
