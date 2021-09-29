@@ -87,7 +87,7 @@ const Result = () => {
     const totalByMonth = (totalValue/months).toFixed(2);
 
     return (
-        totalValue != 0.00 &&
+        totalValue &&
         <div className={style.resultContainer}>
             <div className={style.resultTotalValue}>{prefix} {totalValue.replace(".", separator)}</div>
             <hr />
