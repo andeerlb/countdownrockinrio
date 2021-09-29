@@ -13,8 +13,15 @@ export function CalculatorProvider ({ children }) {
     const [items, setItems] = useState(defaultState);
     const [totalValue, setTotalValue] = useState(0.00);
 
+
     useEffect(() => {
-        calculateTotalValue();
+        if(items.length === 0)  {
+            setTotalValue(0.00);
+        } else {
+            let values = items.map(item => parseFloat(item.value));
+            let total = values.reduce((partialSum, value) => partialSum + value,0);
+            setTotalValue(total);
+        }
     }, [items])
 
     const resetState = () => {
@@ -39,17 +46,6 @@ export function CalculatorProvider ({ children }) {
             }
           });
           setItems(newList);
-    }
-
-    const calculateTotalValue = () => {
-        if(items.length === 0)  {
-            setTotalValue(0.00);
-            return;
-        }
-
-        let values = items.map(item => parseFloat(item.value));
-        let total = values.reduce((partialSum, value) => partialSum + value,0);
-        setTotalValue(total);
     }
     
     return (
