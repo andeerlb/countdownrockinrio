@@ -35,11 +35,13 @@ export function CalculatorProvider ({ children }) {
             }
           });
           setItems(newList);
-          calculateTotalValue(currentItem);
+          calculateTotalValue();
     }
 
-    const calculateTotalValue = (currentItem) => {
-        setTotalValue(totalValue+currentItem.value);
+    const calculateTotalValue = () => {
+        let values = items.map(item => parseFloat(item.value));
+        let total = values.reduce((partialSum, value) => partialSum + value,0);
+        setTotalValue(total);
     }
     
     return (
