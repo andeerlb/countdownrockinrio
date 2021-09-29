@@ -11,16 +11,42 @@ export function CalculatorProvider ({ children }) {
     ];
 
     const [items, setItems] = useState(defaultState);
-    const [expectedTotalValue, setExpectedTotalValue] = useState("0.00");
+    const [totalValue, setTotalValue] = useState(0.00);
 
     const resetState = () => {
-        setItems(defaultState);
+        setItems([]);
+    }
+
+    const addItem = (name, value="0.00", id=new Date().getTime() + Math.random()) => {        
+        let tmp = [...items];
+        tmp.push({ id: id, label: name, value: value });
+        setItems(tmp);
+    }
+
+    const updateItemValue = (currentItem, newValue) => {
+        const newList = items.map((item, index) => {
+            if (currentItem !== item) {
+                return item;
+            }
+
+            return {
+                ...item,
+                value: newValue
+            }
+          });
+          setItems(newList);
+    }
+
+    const calculateTotalValue = () => {
+        let values = items.map(item => parseFloat(item.value));
+        let total = values.reduce((partialSum, value) => partialSum + value,0);
+        setTotalValue(total);
     }
     
     return (
         <CalculatorContext.Provider value={ 
             {
-                items, setItems, resetState, expectedTotalValue, setExpectedTotalValue
+                items, setItems, resetState, addItem, totalValue, calculateTotalValue, updateItemValue
             }
         }>
             { children }

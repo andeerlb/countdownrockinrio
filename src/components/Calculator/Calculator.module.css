@@ -117,7 +117,8 @@ label {
     appearance: none;
     justify-content: center;
     align-items: center;
-    flex: 0 0 160px;
+    flex: 1;
+    margin: 2px;
 }
 
 .button:hover {
@@ -151,4 +152,13 @@ label {
     position: absolute;
     left: 0;
     margin-bottom: 9px;
+}
+
+.secondary {
+    color: #fff;
+    background:#f94144;
+}
+.primary {
+    color: #fff;
+    background: #118ab2;
 }

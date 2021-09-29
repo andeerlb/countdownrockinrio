@@ -10,16 +10,14 @@ import style from "./Calculator.module.css";
 const AddMoreModal = () => {
     const { t } = useTranslation();
     const { toggleModal } = useModal();
-    const { items, setItems } = useCalculator();
+    const { addItem } = useCalculator();
     const [name, setName] = useState('');
 
     const addMore = () => {
         if(name === null || name === undefined || name.trim().length === 0)
             return;
-            
-        let tmp = [...items];
-        tmp.push({ id: new Date().getTime() + Math.random(), label: name, value: "0.00" });
-        setItems(tmp);
+
+        addItem(name);
         toggleModal();
     }
 
@@ -58,8 +56,8 @@ const Input = ( { id, label, isCurrency=true, hideLabel=false, width, onChange, 
         <div className={style.field} style={customStyle}>
             {isCurrency && <span className={style.currencyIcon}>R$</span>}
             { isCurrency ?
-                <CurrencyInput defaultValue={value} onChange={change} name={id} id={id} placeholder=" " required style={{paddingLeft: '25px'}}/> :
-                <input value={value} onChange={change} name={id} id={id} placeholder=" " required/>
+                <CurrencyInput defaultValue={value} onChange={change} onBlur={change} name={id} id={id} placeholder=" " required style={{paddingLeft: '25px'}}/> :
+                <input value={value} onChange={change} onBlur={change} name={id} id={id} placeholder=" " required/>
             }
             {!hideLabel && <label htmlFor={id}>{label}</label>}
         </div>
@@ -68,17 +66,26 @@ const Input = ( { id, label, isCurrency=true, hideLabel=false, width, onChange, 
 }
 
 const Item = ({ item, index }) => {
+    const { updateItemValue } = useCalculator();
+
+    const onChange = val => {
+        console.log('aqui');
+        updateItemValue(item, val);
+    }
+
     return (
-        <Input id={item.id} label={item.label} defaultValue={item.value}/>
+        <Input id={item.id} label={item.label} defaultValue={item.value} onChange={onChange}/>
     )
 }
 
 export default function Calculator() {
     const { t } = useTranslation();
-    const { items } = useCalculator();
+    const { items, resetState, calculateTotalValue, totalValue } = useCalculator();
     const { toggleModal } = useModal();
 
     const calculate = () => {
+        calculateTotalValue();
+        console.log(totalValue);
     }
 
     return (
@@ -90,10 +97,19 @@ export default function Calculator() {
                         <Item key={index} item={item} index={index} />
                     )
                 })}
-                <div className={[style.button, style.regular].join(' ')} onClick={toggleModal}>
-                    {t('ADD_MORE_ITEMS')}
+                <div style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between"
+                }}>
+                    <div className={[style.button, style.primary].join(' ')} onClick={toggleModal}>
+                        {t('ADD_MORE_ITEMS')}
+                    </div>
+                    <div className={[style.button, style.secondary].join(' ')} onClick={resetState}>
+                        {t('RESET_CALCULATOR')}
+                    </div>
                 </div>
-                <div style={{marginTop: "5px"}} className={[style.button, style.regular].join(' ')} onClick={calculate}>
+                <div style={{marginTop: "5px"}} className={[style.button, style.primary].join(' ')} onClick={calculate}>
                     {t('CALCULATE')}
                 </div>
             </div>
