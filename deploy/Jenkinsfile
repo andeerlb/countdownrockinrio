@@ -32,7 +32,7 @@ pipeline {
 
         stage("Deploy") {
             steps {
-                sh """
+                sh '''
                     #!/bin/bash
 
                     aws s3 sync build/ s3://countdownrockinrio-web
@@ -57,7 +57,7 @@ pipeline {
                     } <<(timeout 1s cat /dev/urandom && exit 1)
 
                     waitForCompleted
-                """
+                '''
             }
         }
     }
