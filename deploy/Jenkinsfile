@@ -13,12 +13,14 @@ pipeline {
             }
         }
 
-        stage("Build") {
-            sh "yarn build"
-        }
-
         stage("Deploy") {
-            "sh ls"
+            steps {
+                sh "yarn build"
+            }
+
+            steps {
+                "sh ls"
+            }
         }
     }
 }
