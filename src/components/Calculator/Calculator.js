@@ -102,7 +102,7 @@ const Result = () => {
 
 export default function Calculator() {
     const { t } = useTranslation();
-    const { items, resetState, totalValue } = useCalculator();
+    const { items, resetState } = useCalculator();
     const { toggleModal } = useModal();
 
     const print = () => {
