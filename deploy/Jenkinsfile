@@ -33,7 +33,7 @@ pipeline {
         stage("Deploy") {
             steps {
                 sh '''
-                    #!/bin/bash
+                    #!/bin/bash +x
 
                     aws s3 sync build/ s3://countdownrockinrio-web
 
