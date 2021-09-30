@@ -3,7 +3,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 const CalculatorContext = createContext();
 
 export function CalculatorProvider ({ children }) {
-    const [separator, ] = useState(",");
+    const separator = ",";
 
     const defaultValue = `0${separator}00`;
 
@@ -22,7 +22,7 @@ export function CalculatorProvider ({ children }) {
         if(items.length === 0)  {
             setTotalValue(0.00);
         } else {
-            let values = items.map(item => parseFloat(item.value));
+            let values = items.map(item => parseFloat(item.value.replace(separator, ".")));
             let total = (values.reduce((partialSum, value) => partialSum + value,0) + 0.00001).toFixed(2);
             setTotalValue(total);
         }

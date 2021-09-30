@@ -82,6 +82,7 @@ const Item = ({ item, index }) => {
 }
 
 const Result = () => {
+    const { t } = useTranslation();
     const { months } = useCountDown();
     const { totalValue, prefix, separator } = useCalculator();
     const totalByMonth = (totalValue/months).toFixed(2);
@@ -92,8 +93,8 @@ const Result = () => {
             <div className={style.resultTotalValue}>{prefix} {totalValue.replace(".", separator)}</div>
             <hr />
             <div className={style.resultDescription}>
-                <div><strong>Guardar:</strong> {prefix} {totalByMonth.replace(".", separator)}</div>
-                <div><strong>Por:</strong> {months} meses.</div>
+                <div><strong>{t('SAVE_MONEY')}:</strong> {prefix} {totalByMonth.replace(".", separator)}</div>
+                <div><strong>{t('BY')}:</strong> {months} {t('MONTHS').toLowerCase()}.</div>
             </div>
         </div>
         
@@ -132,9 +133,9 @@ export default function Calculator() {
                         {t('RESET_CALCULATOR')}
                     </div>
                 </div>
-                <div style={{marginTop: "5px"}} className={[style.button, style.primary].join(' ')} onClick={print}>
+                {/* <div style={{marginTop: "5px"}} className={[style.button, style.primary].join(' ')} onClick={print}>
                     {t('PRINT')}
-                </div>
+                </div> */}
             </div>
         </>
     )

@@ -13,5 +13,8 @@ export const TRANSLATIONS_PT = {
   "ARTICLE_USE_CALCULATE": "Para isso, deixei uma calculadora, com ela você pode separar os gastos desejados e obter um valor final.",
   "LETS_GO_TEST_CALCULATOR": "Vamos testar?",
   "RESET_CALCULATOR": "Resetar",
-  "PRINT": "Imprimir"
+  "PRINT": "Imprimir",
+  "SAVE_MONEY": "Guardar",
+  "BY": "Por",
+  "MONTHS": "Meses"
 }
