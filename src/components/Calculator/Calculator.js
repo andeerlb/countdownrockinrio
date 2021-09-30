@@ -106,9 +106,6 @@ export default function Calculator() {
     const { items, resetState } = useCalculator();
     const { toggleModal } = useModal();
 
-    const print = () => {
-    }
-
     return (
         <>  
             <AddMoreModal />
