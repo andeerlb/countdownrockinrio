@@ -60,7 +60,7 @@ const Input = ( { id, label, isCurrency=true, hideLabel=false, width, onChange, 
         <div className={style.field} style={customStyle}>
             {isCurrency && <span className={style.currencyIcon}>{prefix}</span>}
             { isCurrency ?
-                <CurrencyInput separator={separator} defaultValue={value} maxLength="22" type="text" onChange={change} onBlur={change} name={id} id={id} placeholder=" " required style={{paddingLeft: '25px'}}/> :
+                <CurrencyInput inputmode="decimal" separator={separator} defaultValue={value} maxLength="22" type="text" onChange={change} onBlur={change} name={id} id={id} placeholder=" " required style={{paddingLeft: '25px'}}/> :
                 <input value={value} onChange={change} maxLength="30" onBlur={change} name={id} id={id} placeholder=" " required/>
             }
             {!hideLabel && <label htmlFor={id}>{label}</label>}
