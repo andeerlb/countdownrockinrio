@@ -4,9 +4,10 @@ import { useTranslation } from 'react-i18next';
 const CalculatorContext = createContext();
 
 export function CalculatorProvider ({ children }) {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
-    const separator = ",";
+    const separator = i18n.resolvedLanguage === 'pt' ? "," : ".";
+    const prefix = i18n.resolvedLanguage === 'pt' ? "R$" : "$";
 
     const defaultValue = `0${separator}00`;
 
@@ -19,7 +20,6 @@ export function CalculatorProvider ({ children }) {
 
     const [items, setItems] = useState(defaultState);
     const [totalValue, setTotalValue] = useState(0.00);
-    const [prefix, setPrefix] = useState('R$');
 
     useEffect(() => {
         if(items.length === 0)  {
@@ -29,7 +29,7 @@ export function CalculatorProvider ({ children }) {
             let total = (values.reduce((partialSum, value) => partialSum + value,0) + 0.00001).toFixed(2);
             setTotalValue(total);
         }
-    }, [items])
+    }, [items, separator])
 
     const resetState = () => {
         setItems([]);
@@ -61,7 +61,7 @@ export function CalculatorProvider ({ children }) {
     return (
         <CalculatorContext.Provider value={ 
             {
-                items, setItems, resetState, addItem, totalValue, updateItemValue, prefix, setPrefix, separator
+                items, setItems, resetState, addItem, totalValue, updateItemValue, prefix, separator
             }
         }>
             { children }
