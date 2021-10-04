@@ -1,17 +1,20 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const CalculatorContext = createContext();
 
 export function CalculatorProvider ({ children }) {
+    const { t } = useTranslation();
+
     const separator = ",";
 
     const defaultValue = `0${separator}00`;
 
     const defaultState = [
-        {id: 'Hospedagem', label: 'Hospedagem', value: defaultValue},
-        {id: 'Passagens', label: 'Passagens', value: defaultValue},
-        {id: 'alimentacao', label: 'Alimentação', value: defaultValue},
-        {id: 'Transporte', label: 'Transporte', value: defaultValue}
+        {id: 'accommodation', label: t('ACCOMMODATION'), value: defaultValue},
+        {id: 'tickets', label: t('TICKETS'), value: defaultValue},
+        {id: 'food', label: t('FOOD'), value: defaultValue},
+        {id: 'transport', label: t('TRANSPORT'), value: defaultValue}
     ];
 
     const [items, setItems] = useState(defaultState);

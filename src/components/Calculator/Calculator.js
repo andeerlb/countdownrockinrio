@@ -29,7 +29,7 @@ const AddMoreModal = () => {
     
     return (
         <Modal>
-            <Input id="vtotal" label="Nome" isCurrency={false} onChange={inputValue} defaultValue=""/>
+            <Input id="vtotal" label={t('NAME')} isCurrency={false} onChange={inputValue} defaultValue=""/>
             <div className={[style.button, style.regular].join(' ')} onClick={addMore}>
                 {t('ADD_ITEM')}
             </div>

@@ -16,7 +16,12 @@ const TRANSLATIONS = {
   "PRINT": "Print",
   "SAVE_MONEY": "Save",
   "BY": "By",
-  "MONTHS": "Months"
+  "MONTHS": "Months",
+  "ACCOMMODATION": "Accommodation",
+  "TICKETS": "Tickets",
+  "FOOD": "Food",
+  "TRANSPORT": "Transport",
+  "NAME": "Name"
 }
   
   export default TRANSLATIONS;
