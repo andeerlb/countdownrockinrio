@@ -1,4 +1,4 @@
-export const TRANSLATIONS_PT = {
+const TRANSLATIONS = {
   "DAYS": "dias",
   "HOURS": "horas",
   "MINUTES": "minutos",
@@ -18,3 +18,5 @@ export const TRANSLATIONS_PT = {
   "BY": "Por",
   "MONTHS": "Meses"
 }
+
+export default TRANSLATIONS;
